@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="/static/css/styles.css">
+        {% block css %}
+        {% endblock %}
+
+    </head>
+    <body class={% block class %}{% endblock %}>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- ==================== TOP MENU ==================== -->
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="brand" href="#"><strong class="brandBold">Монитор</strong>Событий</a>
+                    <div class="nav pull-right">
+                        <form class="navbar-form">
+                            <div class="input-append">
+                                <input class="inp-mini inp-dark span2" type="text" placeholder="search...">
+                                <span class="add-on add-on-first add-on-mini add-on-dark" id="search"><i class="icon-search"></i></span>
+                                <div class="collapsibleContent">
+                                    <a href="#tasksContent" class="sidebar"><span class="add-on add-on-middle add-on-mini add-on-dark" id="tasks"><i class="icon-tasks"></i><span class="notifyCircle cyan">3</span></span></a>
+                                    <a href="#notificationsContent" class="sidebar"><span class="add-on add-on-middle add-on-mini add-on-dark" id="notifications"><i class="icon-bell-alt"></i><span class="notifyCircle orange">9</span></span></a>
+                                    <a href="#messagesContent" class="sidebar"><span class="add-on add-on-middle add-on-mini add-on-dark" id="messages"><i class="icon-comments-alt"></i><span class="notifyCircle red">12</span></span></a>
+                                    <a href="#settingsContent" class="sidebar"><span class="add-on add-on-middle add-on-mini add-on-dark" id="settings"><i class="icon-cog"></i></span></a>
+                                    <a href="#profileContent" class="sidebar"><span class="add-on add-on-mini add-on-dark" id="profile"><i class="icon-user"></i><span class="username">Ing. Imrich Kamarel</span></span></a>
+                                </div>
+                                <a href="#collapsedSidebarContent" class="collapseHolder sidebar"><span class="add-on add-on-mini add-on-dark"><i class="icon-sort-down"></i></span></a>
+                            </div>
+                        </form>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+        <!-- ==================== END OF TOP MENU ==================== -->
+
+        <!-- ==================== MAIN MENU ==================== -->
+        <div class="mainmenu">
+            <div class="container-fluid">
+                <ul class="nav">
+                    <li class="collapseMenu"><a href="#"><i class="icon-double-angle-left"></i>hide menu<i class="icon-double-angle-right deCollapse"></i></a></li>
+                    <li class="divider-vertical firstDivider"></li>
+                    <li class="left-side active" id="dashboard"><a href="#"><i class="icon-dashboard"></i> Главная панель</a></li>
+                    <li class="divider-vertical"></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="formElements"><i class="icon-list"></i> Настройки <span class="label label-pressed">3</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a tabindex="-1" href="common-form.html">Авторизация</a></li>
+                            <li><a tabindex="-1" href="validation-form.html">Обновления</a></li>
+                            <li><a tabindex="-1" href="form-wizard.html">Система</a></li>
+                        </ul>
+                    </li>
+                    <li class="divider-vertical"></li>
+                    <li id="interfaceElements"><a href="interface.html"><i class="icon-pencil"></i> Устройства</a></li>
+                    <li class="divider-vertical"></li>
+                    <li id="buttonsIcons"><a href="buttons.html"><i class="icon-tint"></i> Поиск</a></li>
+                    <li class="divider-vertical"></li>
+                    <li id="gridLayout"><a href="grid.html"><i class="icon-th"></i> События</a></li>
+                    <li class="divider-vertical"></li>
+                    <li id="tables"><a href="tables.html"><i class="icon-th-large"></i> Уведомления</a></li>
+                    <li class="divider-vertical"></li>
+                </ul>
+           </div>
+        </div>
+        <!-- ==================== END OF MAIN MENU ==================== -->
+
+        <!-- ==================== DROPDOWN MENU FOR MOREOPTIONS ICON (hidden state) ==================== -->
+        <ul class="dropdown-menu" id="moreOptionsMenu">
+            <li class="dropdown-submenu">
+                <a href="#">More options</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Second level link</a></li>
+                    <li><a href="#">Second level link</a></li>
+                    <li><a href="#">Second level link</a></li>
+                    <li><a href="#">Second level link</a></li>
+                    <li><a href="#">Second level link</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+        </ul>
+        <!-- ==================== END OF DROPDOWN MENU ==================== -->
+
+        <!-- ==================== PAGE CONTENT ==================== -->
+        <div class="content">
+
+            <!-- ==================== TITLE LINE FOR HEADLINE ==================== -->
+
+            <!-- ==================== END OF TITLE LINE ==================== -->
+
+            <!-- ==================== BREADCRUMBS / DATETIME ==================== -->
+            <ul class="breadcrumb">
+                <li><i class="icon-home"></i><a href="index-2.html"> Home</a> <span class="divider"><i class="icon-angle-right"></i></span></li>
+                <li class="active">Dashboard</li>
+                <li class="moveDown pull-right">
+                    <span class="time"></span>
+                    <span class="date"></span>
+                </li>    
+            </ul>
+            <!-- ==================== END OF BREADCRUMBS / DATETIME ==================== -->
+
+            <!-- ==================== WIDGETS CONTAINER ==================== -->
+            {% block content %}
+            {% endblock %}
+            <!-- ==================== END OF WIDGETS CONTAINER ==================== -->
+        </div>
+        <!-- ==================== END OF PAGE CONTENT ==================== -->
+    </body>
+</html>

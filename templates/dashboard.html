@@ -1,0 +1,1056 @@
+{% extends "base.html" %}
+{% block class %}
+"tables"
+{% endblock %}
+{% block content %}
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+            <script>window.jQuery || document.write('<script src="/static/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+            <script src="/static/js/vendor/bootstrap-slider.js"></script>                   <!-- bootstrap slider plugin -->
+            <script src="/static/js/vendor/jquery.sparkline.min.js"></script>               <!-- small charts plugin -->
+            <script src="/static/js/vendor/jquery.tablesorter.min.js"></script>             <!-- tablesorter plugin -->
+            <script src="/static/js/vendor/jquery.tablesorter.widgets.min.js"></script>     <!-- tablesorter plugin / widgets extension -->
+            <script src="/static/js/vendor/jquery.tablesorter.pager.min.js"></script>       <!-- tablesorter plugin / pager extension -->
+            <script src="/static/js/vendor/bootstrap-datepicker.js"></script>               <!-- datepicker plugin -->
+            <script src="/static/js/vendor/bootstrap-multiselect.js"></script>              <!-- multiselect plugin -->
+
+            <script src="/static/js/vendor/bootstrap.min.js"></script>
+            <script src="/static/js/vendor/bootstrap-editable.min.js"></script>             <!-- editable fields plugin -->
+            <script src="/static/js/thekamarel.min.js"></script>                            <!-- main project js file -->
+
+            <!-- ==================== WIDGETS CONTAINER ==================== -->
+            <div class="container-fluid">
+
+                <!-- ==================== TABLE ROW ==================== -->
+                <div class="row-fluid">
+                    <div class="span12">
+
+
+                        <!-- ==================== TABLE HEADLINE ==================== -->
+                        <div class="containerHeadline tableHeadline">
+                            <i class="icon-group"></i><h2>Members</h2>
+                            <!-- ==================== TABLE CONTROLS ==================== -->
+                            <form>
+                                <div class="input-append">
+                                    <input class="inp-mini span8" type="text" placeholder="search in members..." id="memberSearch">
+                                    <span class="add-on add-on-first add-on-mini"><i class="icon-search"></i></span>
+                                    <span class="add-on add-on-middle add-on-mini tableSettings"><i class="icon-cog"></i></span>
+                                    <span class="add-on add-on-middle add-on-mini minimizeTable"><i class="icon-caret-down"></i></span>
+<!--                                <span class="add-on add-on-last add-on-mini removeTable"><i class="icon-remove"></i></span>-->
+                                </div>
+                            </form>
+                            <!-- ==================== END OF TABLE CONTROLS ==================== -->
+                        </div>
+                        <!-- ==================== END OF TABLE HEADLINE ==================== -->
+
+                        <!-- ==================== TABLE FLOATING BOX ==================== -->
+                        <div class="floatingBox table">
+                            <div class="container-fluid">
+                                <!-- ==================== TABLESORTER TABLE ==================== -->
+                                <table class="tablesorter centerFirstLast" id="membersTable">
+                                    <thead>
+                                    <tr>
+                                        <th class="info"></th>
+                                        <th data-placeholder="search in usernames...">Username</th>
+                                        <th data-placeholder="search in dates...">Registration date</th>
+                                        <th data-placeholder="search in roles...">Role</th>
+                                        <th data-placeholder="search in statuses...">Status</th>
+                                        <th class="actions">Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Ing. Imrich Kamarel</a></td>
+                                        <td><a href="#" class="registrationDate">01/06/2012</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">John Doe</a></td>
+                                        <td><a href="#" class="registrationDate">12/02/2012</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">George McCain</a></td>
+                                        <td><a href="#" class="registrationDate">24/05/2012</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label pending"><a href="#" class="memberStatus">pending</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Peter Kay</a></td>
+                                        <td><a href="#" class="registrationDate">05/10/2011</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Arnold Karlsberg</a></td>
+                                        <td><a href="#" class="registrationDate">12/08/2010</a></td>
+                                        <td><a href="#" class="memberGroup">second technician</a></td>
+                                        <td><span class="label banned"><a href="#" class="memberStatus">banned</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Mario Speedwagon</a></td>
+                                        <td><a href="#" class="registrationDate">14/03/2010</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label inactive"><a href="#" class="memberStatus">inactive</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Petey Cruiser</a></td>
+                                        <td><a href="#" class="registrationDate">03/03/2013</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Anna Sthesia</a></td>
+                                        <td><a href="#" class="registrationDate">01/04/2013</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label inactive"><a href="#" class="memberStatus">inactive</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Paul Molive</a></td>
+                                        <td><a href="#" class="registrationDate">18/10/2012</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label banned"><a href="#" class="memberStatus">banned</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Anna Mull</a></td>
+                                        <td><a href="#" class="registrationDate">22/07/2011</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label banned"><a href="#" class="memberStatus">banned</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Gail Forcewind</a></td>
+                                        <td><a href="#" class="registrationDate">12/10/2010</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Paige Turner</a></td>
+                                        <td><a href="#" class="registrationDate">15/03/2013</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label pending"><a href="#" class="memberStatus">pending</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Bob Frapples</a></td>
+                                        <td><a href="#" class="registrationDate">10/03/2013</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label pending"><a href="#" class="memberStatus">pending</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Hop Drake</a></td>
+                                        <td><a href="#" class="registrationDate">19/12/2010</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Hop Juarez</a></td>
+                                        <td><a href="#" class="registrationDate">19/03/2011</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Victor Wells</a></td>
+                                        <td><a href="#" class="registrationDate">12/10/2009</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Grant Calhoun</a></td>
+                                        <td><a href="#" class="registrationDate">03/01/2014</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Fletcher Jimenez</a></td>
+                                        <td><a href="#" class="registrationDate">31/07/2009</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Lucas Velasquez</a></td>
+                                        <td><a href="#" class="registrationDate">07/02/2010</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Evan Hamilton</a></td>
+                                        <td><a href="#" class="registrationDate">28/02/2013</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Merrill Collins</a></td>
+                                        <td><a href="#" class="registrationDate">01/05/2014</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Hayden Daniel</a></td>
+                                        <td><a href="#" class="registrationDate">31/08/2012</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Nathaniel Raymond</a></td>
+                                        <td><a href="#" class="registrationDate">05/03/2010</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Nero Bowman</a></td>
+                                        <td><a href="#" class="registrationDate">30/12/2011</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Colby Woodard</a></td>
+                                        <td><a href="#" class="registrationDate">17/06/2013</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Honorato Harrell</a></td>
+                                        <td><a href="#" class="registrationDate">14/05/2011</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Edan Pollard</a></td>
+                                        <td><a href="#" class="registrationDate">23/02/2014</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Bevis Cabrera</a></td>
+                                        <td><a href="#" class="registrationDate">15/02/2014</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Edward Sloan</a></td>
+                                        <td><a href="#" class="registrationDate">01/01/2011</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Ashton Haney</a></td>
+                                        <td><a href="#" class="registrationDate">21/12/2012</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Brody Dalton</a></td>
+                                        <td><a href="#" class="registrationDate">11/06/2010</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Dustin Gibson</a></td>
+                                        <td><a href="#" class="registrationDate">11/06/2014</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Elliott Pittman</a></td>
+                                        <td><a href="#" class="registrationDate">16/01/2011</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Branden Terrell</a></td>
+                                        <td><a href="#" class="registrationDate">08/04/2014</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Lester Rivera</a></td>
+                                        <td><a href="#" class="registrationDate">24/03/2011</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Timon Short</a></td>
+                                        <td><a href="#" class="registrationDate">10/02/2011</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Murphy Ingram</a></td>
+                                        <td><a href="#" class="registrationDate">02/10/2010</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Scott Mosley</a></td>
+                                        <td><a href="#" class="registrationDate">17/09/2011</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Steven Wilkinson</a></td>
+                                        <td><a href="#" class="registrationDate">30/07/2011</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Dustin Salinas</a></td>
+                                        <td><a href="#" class="registrationDate">22/05/2013</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Jordan Schneider</a></td>
+                                        <td><a href="#" class="registrationDate">23/02/2012</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Nigel Franklin</a></td>
+                                        <td><a href="#" class="registrationDate">14/07/2011</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Baker Combs</a></td>
+                                        <td><a href="#" class="registrationDate">19/07/2010</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Ali Mckinney</a></td>
+                                        <td><a href="#" class="registrationDate">04/03/2011</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Arthur Conley</a></td>
+                                        <td><a href="#" class="registrationDate">20/10/2010</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Samuel Bass</a></td>
+                                        <td><a href="#" class="registrationDate">09/06/2013</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Aidan Price</a></td>
+                                        <td><a href="#" class="registrationDate">04/05/2010</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Justin Mckinney</a></td>
+                                        <td><a href="#" class="registrationDate">30/03/2012</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Hamish Hancock</a></td>
+                                        <td><a href="#" class="registrationDate">06/06/2013</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Mohammad Sheppard</a></td>
+                                        <td><a href="#" class="registrationDate">16/06/2014</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Alexander Martinez</a></td>
+                                        <td><a href="#" class="registrationDate">09/02/2014</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Camden Wilder</a></td>
+                                        <td><a href="#" class="registrationDate">15/02/2011</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Caldwell Foreman</a></td>
+                                        <td><a href="#" class="registrationDate">01/01/2013</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Ezra Bell</a></td>
+                                        <td><a href="#" class="registrationDate">02/01/2013</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Raphael Meadows</a></td>
+                                        <td><a href="#" class="registrationDate">26/03/2014</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Clayton Newman</a></td>
+                                        <td><a href="#" class="registrationDate">06/06/2010</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Amal Cohen</a></td>
+                                        <td><a href="#" class="registrationDate">01/09/2009</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Alan Estes</a></td>
+                                        <td><a href="#" class="registrationDate">14/12/2011</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Salvador Emerson</a></td>
+                                        <td><a href="#" class="registrationDate">12/02/2013</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Cooper Velez</a></td>
+                                        <td><a href="#" class="registrationDate">31/03/2010</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Colt Haynes</a></td>
+                                        <td><a href="#" class="registrationDate">15/03/2013</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Holmes Burt</a></td>
+                                        <td><a href="#" class="registrationDate">30/05/2014</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Oleg Morse</a></td>
+                                        <td><a href="#" class="registrationDate">31/01/2012</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Dylan Bass</a></td>
+                                        <td><a href="#" class="registrationDate">25/03/2011</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Colton Gutierrez</a></td>
+                                        <td><a href="#" class="registrationDate">11/07/2011</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Lucius Mcintosh</a></td>
+                                        <td><a href="#" class="registrationDate">12/10/2010</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Steel Horne</a></td>
+                                        <td><a href="#" class="registrationDate">02/06/2012</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Fulton Pratt</a></td>
+                                        <td><a href="#" class="registrationDate">20/01/2012</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Bruce Travis</a></td>
+                                        <td><a href="#" class="registrationDate">18/12/2011</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Alden Butler</a></td>
+                                        <td><a href="#" class="registrationDate">21/03/2011</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Prescott Irwin</a></td>
+                                        <td><a href="#" class="registrationDate">05/05/2010</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Jasper Foley</a></td>
+                                        <td><a href="#" class="registrationDate">19/01/2011</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Martin Leon</a></td>
+                                        <td><a href="#" class="registrationDate">18/11/2009</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Brennan Gallagher</a></td>
+                                        <td><a href="#" class="registrationDate">30/12/2010</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Philip Fitzgerald</a></td>
+                                        <td><a href="#" class="registrationDate">05/05/2012</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Alden Mcguire</a></td>
+                                        <td><a href="#" class="registrationDate">25/05/2014</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Jamal Vargas</a></td>
+                                        <td><a href="#" class="registrationDate">18/08/2012</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Amery Middleton</a></td>
+                                        <td><a href="#" class="registrationDate">23/09/2010</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Baxter Albert</a></td>
+                                        <td><a href="#" class="registrationDate">13/09/2011</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Duncan Glenn</a></td>
+                                        <td><a href="#" class="registrationDate">12/05/2012</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Stone Graves</a></td>
+                                        <td><a href="#" class="registrationDate">15/01/2014</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Melvin Boyd</a></td>
+                                        <td><a href="#" class="registrationDate">14/02/2013</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Gannon Boyer</a></td>
+                                        <td><a href="#" class="registrationDate">22/04/2012</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Michael Gamble</a></td>
+                                        <td><a href="#" class="registrationDate">28/09/2010</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Cullen Glass</a></td>
+                                        <td><a href="#" class="registrationDate">02/01/2012</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Wylie Armstrong</a></td>
+                                        <td><a href="#" class="registrationDate">03/05/2013</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Alan Alvarez</a></td>
+                                        <td><a href="#" class="registrationDate">14/05/2011</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Fitzgerald Atkins</a></td>
+                                        <td><a href="#" class="registrationDate">03/03/2014</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Gannon Mckenzie</a></td>
+                                        <td><a href="#" class="registrationDate">05/05/2014</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Mohammad Decker</a></td>
+                                        <td><a href="#" class="registrationDate">30/11/2012</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Elijah Boyle</a></td>
+                                        <td><a href="#" class="registrationDate">08/04/2013</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Griffith Beasley</a></td>
+                                        <td><a href="#" class="registrationDate">26/08/2009</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Giacomo Vazquez</a></td>
+                                        <td><a href="#" class="registrationDate">06/09/2012</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Victor Benjamin</a></td>
+                                        <td><a href="#" class="registrationDate">22/02/2014</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">August Brennan</a></td>
+                                        <td><a href="#" class="registrationDate">13/12/2011</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Branden Mcpherson</a></td>
+                                        <td><a href="#" class="registrationDate">25/07/2011</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Clarke Townsend</a></td>
+                                        <td><a href="#" class="registrationDate">28/11/2009</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Brian Bernard</a></td>
+                                        <td><a href="#" class="registrationDate">25/02/2011</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Cairo Hubbard</a></td>
+                                        <td><a href="#" class="registrationDate">11/01/2011</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Jared Nichols</a></td>
+                                        <td><a href="#" class="registrationDate">22/07/2012</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Kevin Cole</a></td>
+                                        <td><a href="#" class="registrationDate">13/10/2012</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Curran Parsons</a></td>
+                                        <td><a href="#" class="registrationDate">26/10/2013</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Ray Roy</a></td>
+                                        <td><a href="#" class="registrationDate">16/03/2011</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Gray Hill</a></td>
+                                        <td><a href="#" class="registrationDate">14/09/2013</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Elmo Wong</a></td>
+                                        <td><a href="#" class="registrationDate">21/04/2012</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Andrew Kidd</a></td>
+                                        <td><a href="#" class="registrationDate">03/10/2013</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Wallace Hancock</a></td>
+                                        <td><a href="#" class="registrationDate">23/12/2009</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Amery Austin</a></td>
+                                        <td><a href="#" class="registrationDate">30/05/2013</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Clark Moran</a></td>
+                                        <td><a href="#" class="registrationDate">24/02/2013</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Evan Nichols</a></td>
+                                        <td><a href="#" class="registrationDate">17/08/2010</a></td>
+                                        <td><a href="#" class="memberGroup">user</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Howard Lester</a></td>
+                                        <td><a href="#" class="registrationDate">26/05/2011</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Walter Key</a></td>
+                                        <td><a href="#" class="registrationDate">17/06/2012</a></td>
+                                        <td><a href="#" class="memberGroup">editor</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="label cyan"><i class="icon-info-sign info"></i></span></td>
+                                        <td><a href="#" class="username">Ira Ayala</a></td>
+                                        <td><a href="#" class="registrationDate">20/11/2009</a></td>
+                                        <td><a href="#" class="memberGroup">admin</a></td>
+                                        <td><span class="label active"><a href="#" class="memberStatus">active</a></span></td>
+                                        <td><span class="label green"><i class="icon-pencil edit"></i></span><span class="label red"><i class="icon-trash delete"></i></span></td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                                <!-- ==================== END OF TABLESORTER TABLE ==================== -->
+
+                                <!-- ==================== TABLE PAGER ==================== -->
+                                <div id="pager" class="pager">
+                                    <form>
+                                        <span class="label white first"><i class="icon-double-angle-left"></i> first</span>
+                                        <span class="label white prev"><i class="icon-angle-left"></i> prev</span>
+                                        <span id="pageNumContainers"></span>
+                                        <span class="pagedisplay"></span><!-- this can be any element, including an input -->
+                                        <span class="label white next">next <i class="icon-angle-right"></i></span>
+                                        <span class="label white last">last <i class="icon-double-angle-right"></i></span>
+                                        <div class="perPageSelect">
+                                            <select class="pagesize inp-mini">
+                                                <option selected="selected" value="10">10</option>
+                                                <option value="20">20</option>
+                                                <option value="30">30</option>
+                                                <option value="50">50</option>
+                                            </select> records per page
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- ==================== END TABLE PAGER ==================== -->
+
+                            </div>
+                        </div>
+                        <!-- ==================== END OF TABLE FLOATING BOX ==================== -->
+                    </div>
+                </div>
+                <!-- ==================== END OF TABLE ROW ==================== -->
+
+            </div>
+            <!-- ==================== END OF WIDGETS CONTAINER ==================== -->
+
+
+        <script>
+        // add parser through the tablesorter addParser method
+        $.tablesorter.addParser({
+            id: 'checkbox',
+            is: function(s) {
+                return false;
+            },
+            format: function(s, table, cell, cellIndex) {
+                var $t = $(table), $c = $(cell), c,
+
+                // resort the table after the checkbox status has changed
+                resort = false;
+
+                if (!$t.hasClass('hasCheckbox')) {
+                    $t
+                    .addClass('hasCheckbox')
+                    // make checkbox in header set all others
+                    .find('thead th:eq(' + cellIndex + ') input[type=checkbox]')
+                    .bind('change', function(){
+                        c = this.checked;
+                        $t.find('tbody tr:visible td:nth-child(' + (cellIndex + 1) + ') input').each(function(){
+                          this.checked = c;
+                          $(this).trigger('change');
+                        });
+                    })
+                    .bind('mouseup', function(){
+                        return false;
+                    });
+                    $t.find('tbody tr').each(function(){
+                        $(this).find('td:eq(' + cellIndex + ')').find('input[type=checkbox]').bind('change', function(){
+                            $t.trigger('updateCell', [$(this).closest('td')[0], resort]);
+                        });
+                    });
+                }
+                // return 1 for true, 2 for false, so true sorts before false
+                c = ($c.find('input[type=checkbox]')[0].checked) ? 1 : 2;
+                $c.closest('tr')[ c === 1 ? 'addClass' : 'removeClass' ]('checked');
+                return c;
+            },
+            type: 'numeric'
+        });
+
+        $(function() {
+            $('#tablesorterDemo').tablesorter({
+                sortList: [[1,0]],
+                widgets: ['zebra', 'stickyHeaders'],
+                headers: {
+                    0: {
+                        sorter: 'checkbox'
+                    },
+                }
+            });
+        });
+        </script>
+{% endblock %}
