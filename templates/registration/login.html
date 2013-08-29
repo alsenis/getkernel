@@ -1,13 +1,12 @@
 {% extends "base_login.html" %}
 
 {% block content %}
-
   {% if form.errors %}
     <p class="error">Сожалеем, вы неправильно ввели логин или пароль</p>
   {% endif %}
 <div style="margin:0 25% 0 25%;
   width:50%;">
-  <form action='.' method='post' >{% csrf_token %}
+  <form action='.' method='post'>{% csrf_token %}
     <table>
       <tbody>
         <tr>
