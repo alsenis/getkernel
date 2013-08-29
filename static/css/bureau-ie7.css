@@ -1,0 +1,67 @@
+/*!
+ *
+ * Bureau v.1.2 
+ * Bootstrap v2.2.2 skin file 
+ *
+ *
+ * Author: Katarina Vukasovic
+ * Since: October 2012
+ * Questions and comments send to: http://codecanyon.net/user/cjbug
+ *
+ */
+
+/*!
+ * Bureau
+ *
+ * IE7 fixes
+ *
+*/
+.dropdown-menu li>a:hover,.dropdown-menu li>a:focus,.dropdown-submenu:hover>a,.nav .dropdown-menu li>a:hover,.nav .dropdown-menu li>a:focus,.nav .dropdown-submenu:hover>a {
+	background-color: #cee3f3;
+}
+
+legend {
+	position: relative;
+	left: -7px;
+}
+
+.input-block-level {
+	width: 90% !important;
+}
+
+.dropdown .caret {
+	margin-top: 4px;
+}
+
+.nav .dropdown-toggle .caret {
+	margin-top: 4px;
+}
+
+.navbar .nav .dropdown-toggle .caret {
+	margin-top: 4px;
+}
+
+.nav-list .divider {
+	padding: 5px 15px;
+}
+
+.nav-list {
+	border-bottom-style: none;
+}
+
+.input-append .btn {
+	border-width: 1px;
+	line-height: 19px;
+}
+
+.btn.btn-large {
+	line-height: 26px;
+}
+
+.datepicker-days {
+	float: left;
+}
+
+.datepicker table {
+	width: 220px;
+}

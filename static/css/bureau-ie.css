@@ -1,0 +1,22 @@
+/*!
+ *
+ * Bureau v.1.2 
+ * Bootstrap v2.2.2 skin file 
+ *
+ *
+ * Author: Katarina Vukasovic
+ * Since: October 2012
+ * Questions and comments send to: http://codecanyon.net/user/cjbug
+ *
+ */
+
+/*!
+ * Bureau
+ *
+ * IE fixes
+ *
+*/
+.btn {
+	border-style: solid;
+	line-height: 18px;
+}

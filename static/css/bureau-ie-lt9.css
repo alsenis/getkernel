@@ -1,0 +1,72 @@
+/*!
+ *
+ * Bureau v.1.2 
+ * Bootstrap v2.2.2 skin file 
+ *
+ *
+ * Author: Katarina Vukasovic
+ * Since: October 2012
+ * Questions and comments send to: http://codecanyon.net/user/cjbug
+ *
+ */
+
+/*!
+ * Bureau
+ *
+ * IE8 and lower fixes
+ *
+*/
+.dropdown-menu {
+    border: 1px solid #bebebe;
+}
+
+.navbar-inverse .dropdown-menu {
+    border-color: #122850;
+}
+
+.dropdown-menu .divider {
+    display: block;
+    height: 0;
+    border-color: #d8d8d8;
+}
+
+.nav-pills .dropdown-menu {
+    margin-top: -3px;
+}
+
+input.search-query {
+    padding-right: 4px;
+    padding-left: 4px;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+}
+
+.navbar-inner {
+    border: 1px solid #bebebe;   
+}
+
+.navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {
+    border-color: #f9f9f9;
+    border-width: 0 0 1px;
+}
+
+.navbar-inverse .navbar-inner {
+    border-color: #254683;
+}
+
+.popover {
+    border: 1px solid #c4c4c4;
+}
+
+.popover .arrow,
+.popover .arrow:after {
+    display: none;
+}
+
+.accordion-heading .accordion-toggle {
+    border-color: #bfbfbf;
+    border-width: 1px;
+}
+
+.nav-collapse.collapse {
+  overflow: visible;
+}
