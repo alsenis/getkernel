@@ -1,0 +1,455 @@
+{% extends "base.html" %}
+{% block css %}
+<style type="text/css">
+html,#closure {
+	background: #222222;
+}
+
+body {
+	padding-top: 40px;
+}
+
+h2 i {
+	color: #5d9c22;
+	font-size: 1.3333em;
+	margin-right: 0.2em;
+}
+
+footer {
+	margin-top: 50px;
+}
+
+#foo {
+	background-color: #303030;
+	border-bottom: 1px solid #4b4b4b;
+	color: #c8c8c8;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#foo p {
+	color: #939393;
+	margin: 0 0 3px;
+}
+
+footer a {
+	color: #616161;
+}
+
+footer a:hover {
+	color: #c8c8c8;
+	text-decoration: none;
+}
+
+#foo h3 {
+	color: #c8c8c8;
+	font-size: 19px;
+	text-shadow: none;
+}
+
+#closure {
+	border-top: 1px solid #0f0f0f;
+	color: #616161;
+	text-shadow: 0 1px 1px #0e0e0e;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#social a {
+	margin-left: 20px;
+}
+
+#social a i {
+	font-size: 21px;
+}
+
+#social a:hover i {
+	text-decoration: none;
+}
+
+@media ( max-width : 767px) {
+	footer {
+		margin-left: -20px;
+		margin-right: -20px;
+	}
+	#foo,#closure {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+
+/* Blog header
+------------------------- */
+.jumbotron {
+	border-bottom: 1px solid #ffffff;
+	position: relative;
+	margin-bottom: 15px;
+	padding: 25px 0 20px;
+	color: #fff;
+	text-align: left;
+	background: #80abd2; /* Old browsers */
+	background: -moz-radial-gradient(center -70px, ellipse cover, #CEE5FC 0%, #6C9DC8 100%);
+	background: -webkit-gradient(radial, center -70px, 0px, center center, 100%, color-stop(0%, #CEE5FC), color-stop(100%, #6C9DC8) );
+	background: -webkit-radial-gradient(center -70px, ellipse cover, #CEE5FC 0%, #6C9DC8 100%);
+	background: -o-radial-gradient(center -70px, ellipse cover, #CEE5FC 0%, #6C9DC8 100%);
+	background: -ms-radial-gradient(center -70px, ellipse cover, #CEE5FC 0%, #6C9DC8 100%);
+	background: radial-gradient(ellipse at center -70px, #CEE5FC 0%, #6C9DC8 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(       startColorstr='#6C9DC8', endColorstr='#CEE5FC', GradientType=1 );
+}
+
+.jumbotron h1 {
+	color: #ffffff;
+	font-size: 40px;
+	font-weight: normal;
+	line-height: 1;
+	text-shadow: none;
+}
+
+.jumbotron p {
+	color: #1053a2;
+	font-size: 21px;
+	font-weight: 300;
+	line-height: 30px;
+	margin-bottom: 20px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+/* Blog posts
+------------------------- */
+.post-date {
+	margin: 17px 0;
+}
+
+.post-meta {
+	clear: both;
+	float: left;
+	margin: 7px 0 12px 0;
+	width: 100%;
+	border-style: solid;
+	border-width: 1px 0 1px 0;
+	border-color: #c2c2c2;
+}
+
+.post-meta li {
+	float: left;
+	margin: 3px 7px 3px 0;
+	font-size: 11px;
+}
+
+/* Blog navigation
+------------------------- */
+.sidebar-block {
+	margin-bottom: 20px;
+}
+
+.blog-tags li {
+	float: left;
+	margin-bottom: 10px;
+	margin-right: 5px;
+}
+
+.blog-tags li>a {
+	opacity: 0.7;
+	filter: alpha(opacity =   70);
+}
+
+.blog-tags li>a:hover {
+	opacity: 1;
+	filter: alpha(opacity =   100);
+}
+/* Blog navigation
+------------------------- */
+</style>
+{% endblock %}
+{% block content %}
+	<div class="container">
+
+		<!-- Blog posts -->
+		<section id="blogContent">
+
+			<div class="container">
+				<div class="row">
+
+					<!-- Posts -->
+					<div id="posts" class="span8">
+						<article>
+							<div class="row">
+								<div class="span1 post-date">
+									<span class="label label-info">18 dec</span>
+								</div>
+								<div class="span7">
+									<h2>Blog post title</h2>
+
+									<ul class="unstyled post-meta muted">
+										<li><i class="icon-tag"></i> <a href="#">category</a></li>
+										<li><i class="icon-calendar"></i> December 18th, 2012</li>
+										<li><i class="icon-user"></i> <a href="#">Admin</a></li>
+										<li><i class="icon-comment"></i> 12 comments</li>
+									</ul>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+										elit, sed do eiusmod tempor incididunt ut labore et dolore
+										magna aliqua. Ut enim ad minim veniam, quis nostrud
+										exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat. Duis aute irure dolor in reprehenderit in voluptate
+										velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+										sint occaecat cupidatat non proident, sunt in culpa qui
+										officia deserunt mollit anim id est laborum.</p>
+									<p>
+										<a href="#">read more</a>
+									</p>
+
+								</div>
+
+							</div>
+						</article>
+						<article>
+							<div class="row">
+								<div class="span1 post-date">
+									<span class="label label-info">17 dec</span>
+								</div>
+								<div class="span7">
+									<h2>Blog post title</h2>
+
+									<ul class="unstyled post-meta muted">
+										<li><i class="icon-tag"></i> <a href="#">category</a></li>
+										<li><i class="icon-calendar"></i> December 17th, 2012</li>
+										<li><i class="icon-user"></i> <a href="#">Admin</a></li>
+										<li><i class="icon-comment"></i> 12 comments</li>
+									</ul>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+										elit, sed do eiusmod tempor incididunt ut labore et dolore
+										magna aliqua. Ut enim ad minim veniam, quis nostrud
+										exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat. Duis aute irure dolor in reprehenderit in voluptate
+										velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+										sint occaecat cupidatat non proident, sunt in culpa qui
+										officia deserunt mollit anim id est laborum.</p>
+									<p>
+										<a href="#">read more</a>
+									</p>
+
+								</div>
+
+							</div>
+						</article>
+						<article>
+							<div class="row">
+								<div class="span1 post-date">
+									<span class="label label-info">16 dec</span>
+								</div>
+								<div class="span7">
+									<h2>Blog post title</h2>
+
+									<ul class="unstyled post-meta muted">
+										<li><i class="icon-tag"></i> <a href="#">category</a></li>
+										<li><i class="icon-calendar"></i> December 16th, 2012</li>
+										<li><i class="icon-user"></i> <a href="#">Admin</a></li>
+										<li><i class="icon-comment"></i> 12 comments</li>
+									</ul>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+										elit, sed do eiusmod tempor incididunt ut labore et dolore
+										magna aliqua. Ut enim ad minim veniam, quis nostrud
+										exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat. Duis aute irure dolor in reprehenderit in voluptate
+										velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+										sint occaecat cupidatat non proident, sunt in culpa qui
+										officia deserunt mollit anim id est laborum.</p>
+									<p>
+										<a href="#">read more</a>
+									</p>
+
+								</div>
+
+							</div>
+						</article>
+						<article>
+							<div class="row">
+								<div class="span1 post-date">
+									<span class="label label-info">15 dec</span>
+								</div>
+								<div class="span7">
+									<h2>Blog post title</h2>
+
+									<ul class="unstyled post-meta muted">
+										<li><i class="icon-tag"></i> <a href="#">category</a></li>
+										<li><i class="icon-calendar"></i> December 15th, 2012</li>
+										<li><i class="icon-user"></i> <a href="#">Admin</a></li>
+										<li><i class="icon-comment"></i> 12 comments</li>
+									</ul>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+										elit, sed do eiusmod tempor incididunt ut labore et dolore
+										magna aliqua. Ut enim ad minim veniam, quis nostrud
+										exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat. Duis aute irure dolor in reprehenderit in voluptate
+										velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+										sint occaecat cupidatat non proident, sunt in culpa qui
+										officia deserunt mollit anim id est laborum.</p>
+									<p>
+										<a href="#">read more</a>
+									</p>
+
+								</div>
+
+							</div>
+						</article>
+						<div class="blog-nav">
+							<nav class="pagination span7 pull-right">
+								<ul>
+									<li><a href="#">Prev</a></li>
+									<li class="active"><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">Next</a></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+
+
+					<!-- Right sidebar -->
+					<aside class="span4">
+						<div class="sidebar-block">
+							<h3>Search</h3>
+							<form action="" method="post">
+								<div class="input-append">
+									<input type="text" class="span3">
+									<button type="button" class="btn">
+										<i class="icon-search"></i>
+									</button>
+								</div>
+							</form>
+						</div>
+
+						<div class="sidebar-block">
+							<h3>Categories</h3>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">How-Tos</a></li>
+								<li><a href="#">Tips and tricks</a></li>
+								<li><a href="#">Amazing stuff</a></li>
+								<li><a href="#">Story of My Life</a></li>
+							</ul>
+						</div>
+
+						<div class="sidebar-block">
+
+							<h3>Recent</h3>
+							<ul id="myTab" class="nav nav-tabs">
+								<li class="active"><a data-toggle="tab"
+									href="#updates-tabs-1"><i class="icon-pencil"></i>&nbsp;
+										Posts</a></li>
+								<li><a data-toggle="tab" href="#updates-tabs-2"><i
+										class="icon-comments"></i>&nbsp; Comments</a></li>
+
+							</ul>
+							<div class="tab-content">
+								<div id="updates-tabs-1" class="tab-pane active">
+									<ul class="unstyled">
+										<li>
+											<h5>Blog post title</h5>
+											<p>
+												Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+												sed do eiusmod tempor incididunt ut labore et dolore magna
+												aliqua...<br /> <a class="muted" href="#">read more</a>
+											</p>
+										</li>
+										<li>
+											<h5>Blog post title</h5>
+											<p>
+												Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+												sed do eiusmod tempor incididunt ut labore et dolore magna
+												aliqua...<br /> <a class="muted" href="#">read more</a>
+											</p>
+										</li>
+										<li>
+											<h5>Blog post title</h5>
+											<p>
+												Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+												sed do eiusmod tempor incididunt ut labore et dolore magna
+												aliqua...<br /> <a class="muted" href="#">read more</a>
+											</p>
+										</li>
+									</ul>
+								</div>
+								<div id="updates-tabs-2" class="tab-pane">
+									<ul class="unstyled">
+										<li>
+											<p>
+												<a href="#">User:</a> <a class="muted" href="#">Lorem
+													ipsum dolor sit amet, consectetur adipisicing elit, sed do
+													eiusmod tempor incididunt ut labore et dolore magna
+													aliqua...</a>
+											</p>
+										</li>
+										<li>
+										<li>
+											<p>
+
+												<a href="#">User:</a> <a class="muted" href="#">Lorem
+													ipsum dolor sit amet, consectetur adipisicing elit, sed do
+													eiusmod tempor incididunt ut labore et dolore magn a aliqua
+													...</a>
+											</p>
+										</li>
+										<li>
+
+											<p>
+												<a href="#">User:</a> <a class="muted" href="#">Lorem
+													ipsum dolor sit amet, consectetur adipisicing elit, sed do
+													eiusmod tempor incididunt ut labore et dolore magna
+													aliqua...</a>
+											</p>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+
+						</div>
+
+						<div class="sidebar-block">
+							<h3>Archived posts</h3>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">December 2012 (12)</a></li>
+								<li><a href="#">March 2012 (9)</a></li>
+								<li><a href="#">June 2011 (11)</a></li>
+								<li><a href="#">May 2010 (7)</a></li>
+								<li><a href="#">February 2010 (6)</a></li>
+							</ul>
+						</div>
+
+						<div class="sidebar-block">
+							<h3>TAGS</h3>
+							<ul class="unstyled blog-tags">
+								<li><a class="label" href="#">News</a></li>
+								<li><a class="label" href="#">IT</a></li>
+								<li><a class="label" href="#">Web</a></li>
+								<li><a class="label" href="#">Design</a></li>
+								<li><a class="label" href="#">Life</a></li>
+								<li><a class="label" href="#">Flowers</a></li>
+								<li><a class="label" href="#">Photography</a></li>
+								<li><a class="label" href="#">Music</a></li>
+								<li><a class="label" href="#">Politics</a></li>
+								<li><a class="label" href="#">Books</a></li>
+								<li><a class="label" href="#">Toys</a></li>
+								<li><a class="label" href="#">Art</a></li>
+								<li><a class="label" href="#">Pets</a></li>
+							</ul>
+						</div>
+					</aside>
+					<!-- Sidebar -->
+
+				</div>
+
+			</div>
+			<!-- blog content -->
+
+
+		</section>
+
+
+	</div>
+	<!-- /container -->
+{% endblock %}
+{% block js %}
+{% endblock %}
