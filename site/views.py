@@ -4,8 +4,12 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 
 @login_required
-def test_form(request):
-    return render_response(request, 'test_form.html')
+def dashboard(request):
+    return render_response(request, 'dashboard.html')
+
+@login_required
+def blog(request):
+    return render_response(request, 'blog.html')
 
 def login(request):
     username = request.POST['username']
