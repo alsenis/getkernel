@@ -1,34 +1,129 @@
-{% extends "base_login.html" %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Examples - Bureau (Twitter Bootstrap Skin)</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-{% block content %}
-  {% if form.errors %}
-    <p class="error">Сожалеем, вы неправильно ввели логин или пароль</p>
-  {% endif %}
-<div style="margin:0 25% 0 25%;
-  width:50%;">
-  <form action='.' method='post'>{% csrf_token %}
-    <table>
-      <tbody>
-        <tr>
-          <td>
-            <label for="username">Логин:</label>
-          </td>
-          <td>
-            <input type="text" name="username" value="" id="username">
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="password">Пароль:</label>
-          </td>
-          <td>
-            <input type="password" name="password" value="" id="password">
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <input type="submit" value="login" />
-    <input type="hidden" name="next" value="{{ next|escape }}" />
-  </form>
-</div>
-{% endblock %}
+        <!-- Le styles -->
+        <link href="/static/css/font-awesome.css" rel="stylesheet">
+        <!--[if IE 7]><link rel="stylesheet" href="/static/css/font-awesome-ie7.css"><![endif]-->
+        <link href="/static/css/bureau.css" rel="stylesheet">
+        <!--[if IE]>
+        <link rel="stylesheet" type="text/css" href="/static/css/bureau-ie.css" />
+        <![endif]-->
+        <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" href="/static/css/bureau-ie-lt9.css" /
+        <![endif]-->
+        <!--[if IE 7]>
+        <link rel="stylesheet" type="text/css" href="/static/css/bureau-ie7.css">
+        <![endif]-->
+        <style type="text/css">
+            body {
+                padding-top: 40px;
+                padding-bottom: 40px;
+            }
+            .form-signin,
+            #signup {
+                max-width: 300px;
+                margin: 0 auto 20px;
+            }
+            .form-signin {
+                padding: 19px 29px 29px;
+                margin: 0 auto 20px;
+                background-color: #ffffff;
+                background-image: -moz-linear-gradient(top, #ffffff, #f2f2f2);
+                background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff),
+                    to(#f2f2f2) );
+                background-image: -webkit-linear-gradient(top, #ffffff, #f2f2f2);
+                background-image: -o-linear-gradient(top, #ffffff, #f2f2f2);
+                background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
+                filter: progid : dximagetransform.microsoft.gradient ( startColorstr =
+                    '#ffffffff', endColorstr = '#fff2f2f2', GradientType = 0 );
+                background-repeat: repeat-x;
+                -webkit-border-radius: 4px;
+                -moz-border-radius: 4px;
+                border-radius: 4px;
+                -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+                -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+            }
+            .form-signin .form-signin-heading {
+                margin-bottom: 20px;
+            }           
+            .form-signin .checkbox {
+                margin-bottom: 10px;
+            }
+            .form-signin input[type="text"],
+            .form-signin input[type="password"] {
+                height: auto;
+                margin-bottom: 15px;
+                padding: 7px 9px;
+            }
+            #signup {
+                text-align: center;
+            }
+        </style>
+        <link href="/static/css/bootstrap-responsive.css" rel="stylesheet">
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <!-- Google web fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+
+    </head>
+
+    <body>
+
+        <div class="container">
+
+            <form action='.' class="form-signin" method='post'>{% csrf_token %}
+                <fieldset>
+                    <legend class="form-signin-heading">Please sign in</legend>
+                    {% if form.errors %}
+                        <p class="error">Сожалеем, вы неправильно ввели логин или пароль</p>
+                    {% endif %}
+                    <input type="text" name="username" class="input-block-level" placeholder="Email address" id="username">
+                    <input type="password" name="password" class="input-block-level" placeholder="Password" id="password">
+                    <label class="checkbox">
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                    <button class="btn btn-primary" type="submit"><i class="icon-lock"></i>&nbsp; Sign in</button>
+                    <input type="hidden" name="next" value="{{ next|escape }}" />
+                </fieldset>
+            </form>
+
+
+
+            <div id="signup">
+                <p><a href="#">Forgot your password?</a></p>
+                <p>Don't have an account yet? <a href="#">Sign up</a></p>
+            </div>
+
+        </div> <!-- /container -->
+
+        <!-- Le javascript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="/static/js/jquery.js"></script>
+        <script src="/static/js/bootstrap-transition.js"></script>
+        <script src="/static/js/bootstrap-alert.js"></script>
+        <script src="/static/js/bootstrap-modal.js"></script>
+        <script src="/static/js/bootstrap-dropdown.js"></script>
+        <script src="/static/js/bootstrap-scrollspy.js"></script>
+        <script src="/static/js/bootstrap-tab.js"></script>
+        <script src="/static/js/bootstrap-tooltip.js"></script>
+        <script src="/static/js/bootstrap-popover.js"></script>
+        <script src="/static/js/bootstrap-button.js"></script>
+        <script src="/static/js/bootstrap-collapse.js"></script>
+        <script src="/static/js/bootstrap-carousel.js"></script>
+        <script src="/static/js/bootstrap-typeahead.js"></script>
+
+    </body>
+</html>
